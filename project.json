@@ -16,9 +16,10 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.3.0",
-  "projectVersion": "1.0.1",
+  "projectVersion": "1.0.6",
   "runtimeOptions": {
     "autoDispose": false,
+    "netFrameworkLazyLoading": false,
     "isPausable": true,
     "isAttended": false,
     "requiresUserInteraction": false,
@@ -30,7 +31,7 @@
     "executionType": "Workflow",
     "readyForPiP": false,
     "startsInPiP": false,
-    "mustRestoreAllDependencies": true
+    "mustRestoreAllDependencies": false
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -50,6 +51,12 @@
     {
       "filePath": "Main.xaml",
       "uniqueId": "6a1c50ad-48ab-47b0-bc07-3470a88746f9",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "NestedSequence.xaml",
+      "uniqueId": "06b28fdd-a593-4fa9-93a9-0bffa6826c47",
       "input": [],
       "output": []
     }
