@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1178.66666666667,2408.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>726,1508.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="78">
@@ -106,10 +106,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <upaf:CreateFormTask BucketFolderPath="{x:Null}" BucketName="{x:Null}" BulkFormLayout="{x:Null}" ExternalTag="{x:Null}" TimeoutMs="{x:Null}" BulkFormLayoutGuid="7beb9089-9b10-4e51-a66b-1057410951a8" DisplayName="Create Form Task" EnableBulkEdit="False" FormLayout="%[{&quot;label&quot;:&quot;Name&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;name&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;City&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;city&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Submit&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;submit&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;input&quot;:true,&quot;type&quot;:&quot;button&quot;}]" FormLayoutGuid="3b75c064-b7b0-4441-bf56-d91825214cec" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="334,382.666666666667" sap2010:WorkflowViewState.IdRef="CreateFormTask_1" TaskCatalog="[&quot;Test Catalog&quot;]" TaskOutput="[taskOutput]" TaskPriority="[TaskPriority.Medium]" TaskTitle="Provide Name and City">
+    <upaf:CreateFormTask BucketFolderPath="{x:Null}" BucketName="{x:Null}" ExternalTag="{x:Null}" TaskOutput="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Create Form Task" FormLayout="%[{&quot;label&quot;:&quot;Name&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;name&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;City&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;city&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;tableView&quot;:true},{&quot;mask&quot;:false,&quot;customClass&quot;:&quot;uipath-button-container&quot;,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;table&quot;,&quot;input&quot;:false,&quot;key&quot;:&quot;key&quot;,&quot;label&quot;:&quot;label&quot;,&quot;rows&quot;:[[{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]}]],&quot;numRows&quot;:1,&quot;numCols&quot;:6,&quot;reorder&quot;:false}]" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="334,382.666666666667" sap2010:WorkflowViewState.IdRef="CreateFormTask_1" TaskCatalog="[&quot;Test Catalog&quot;]" TaskPriority="[TaskPriority.Medium]" TaskTitle="Provide Name and City">
       <upaf:CreateFormTask.FormData>
-        <OutArgument x:TypeArguments="x:String" x:Key="name">[taskName]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="city">[taskCity]</OutArgument>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </upaf:CreateFormTask.FormData>
     </upaf:CreateFormTask>
     <upaf:WaitForFormTaskAndResume StatusMessage="{x:Null}" TimeoutMs="{x:Null}" WaitItemDataObject="{x:Null}" DisplayName="Wait for Form Task and Resume" sap:VirtualizedContainerService.HintSize="334,228.666666666667" sap2010:WorkflowViewState.IdRef="WaitForFormTaskAndResume_1" TaskAction="[currentAction]" TaskInput="[taskOutput]" TaskOutput="[taskResult]" />
@@ -125,12 +124,8 @@
     <ui:WriteTextFile DisplayName="Write Text File" FileName="[outputFilePath]" sap:VirtualizedContainerService.HintSize="334,135.333333333333" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[out_Message]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UseForeground workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="UseForeground.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="outputExcelPath">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outputExcelPath" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="out_Message">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_Message" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="outputExcelPath">[outputExcelPath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="out_Message">[out_Message]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;fin&quot;]" />
